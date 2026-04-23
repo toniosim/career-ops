@@ -5,199 +5,167 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{NAME}} — Resume</title>
 <style>
-  /* Antonio's Resume Style */
-  @font-face {
-    font-family: 'Inter';
-    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-  }
+    /* Exact style extraction from Antonio's Word-to-HTML Export */
+    * { margin:0; padding:0; box-sizing: border-box; }
+    
+    body {
+        font-family: 'Arial', sans-serif;
+        color: #595959;
+        line-height: 1.2;
+        padding: 0.75in;
+        max-width: 8.5in;
+        margin: auto;
+    }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    /* Name Header */
+    .name-header {
+        color: #1b3a5c;
+        font-size: 28pt;
+        font-weight: bold;
+        margin-bottom: 2px;
+    }
 
-  body {
-    font-family: 'Helvetica', 'Arial', sans-serif; /* Professional standard matching your PDF */
-    font-size: 10.5pt;
-    line-height: 1.35;
-    color: #333;
-    padding: 0.5in 0.6in;
-  }
+    /* Subheader with Underline */
+    .role-subheader {
+        color: #2e75b6;
+        font-size: 13pt;
+        margin-bottom: 4px;
+        padding-bottom: 2px;
+        border-bottom: 2px solid #2e75b6; /* paragraph-P2 style */
+    }
 
-  /* Colors */
-  :root {
-    --primary-blue: #2c5282; /* Professional Blue */
-    --accent-blue: #4299e1;
-  }
+    /* Contact Info Row */
+    .contact-row {
+        font-size: 9.5pt;
+        color: #595959;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+    .contact-row a { color: #2e75b6; text-decoration: none; }
+    .separator { color: #c5d4e8; margin: 0 4px; }
 
-  /* Header */
-  .header {
-    text-align: left;
-    margin-bottom: 15px;
-  }
+    /* Section Headers */
+    .section-header {
+        color: #1b3a5c;
+        font-size: 11pt;
+        font-weight: bold;
+        margin-top: 18px;
+        margin-bottom: 4px;
+        padding-bottom: 1px;
+        border-bottom: 1.5px solid #2e75b6; /* paragraph-P5 style */
+    }
 
-  .header h1 {
-    font-size: 26pt;
-    color: var(--primary-blue);
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
+    /* Skills Table */
+    .skills-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 5px;
+    }
+    .skills-table tr { line-height: 1.4; }
+    .skill-label {
+        background-color: #f2f6fb; /* cell-Table1_A1 */
+        color: #1b3a5c;
+        font-size: 9.5pt;
+        font-weight: bold;
+        width: 1.5in;
+        padding: 4px 8px;
+        vertical-align: middle;
+    }
+    .skill-values {
+        background-color: #ffffff;
+        color: #595959;
+        font-size: 9.5pt;
+        padding: 4px 10px;
+        vertical-align: middle;
+    }
 
-  .header .title {
-    font-size: 14pt;
-    color: var(--primary-blue);
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
+    /* Summary */
+    .summary-text {
+        font-size: 10pt;
+        color: #595959;
+        margin-top: 4px;
+        line-height: 1.3;
+    }
 
-  .contact-info {
-    font-size: 10pt;
-    color: #4a5568;
-  }
+    /* Experience */
+    .experience-item { margin-top: 12px; }
+    
+    .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 2px;
+    }
+    .exp-role-company { font-size: 11pt; font-weight: bold; color: #1b3a5c; }
+    .exp-company-accent { color: #2e75b6; }
+    .exp-location-date { font-size: 10pt; color: #595959; }
+    .date-italic { font-style: italic; }
 
-  .contact-info .separator {
-    margin: 0 6px;
-    color: #cbd5e0;
-  }
+    .contract-note {
+        font-size: 9.5pt;
+        font-style: italic;
+        color: #595959;
+        margin-top: 2px;
+        margin-bottom: 4px;
+    }
 
-  .contact-info a {
-    color: inherit;
-    text-decoration: none;
-  }
+    /* Bullets */
+    ul { margin-left: 0.3in; margin-top: 4px; }
+    li {
+        font-size: 10pt;
+        color: #595959;
+        margin-bottom: 4px;
+        list-style-type: none;
+        position: relative;
+    }
+    li::before {
+        content: "•";
+        color: #2e75b6; /* ListLabel_20_1 */
+        font-weight: bold;
+        position: absolute;
+        left: -15px;
+    }
 
-  /* Section Headers */
-  .section {
-    margin-bottom: 15px;
-  }
+    /* Education */
+    .edu-item { margin-top: 10px; }
+    .edu-degree { font-size: 10.5pt; font-weight: bold; color: #1b3a5c; }
+    .edu-date { font-size: 9.5pt; font-style: italic; color: #595959; font-weight: normal; }
+    .edu-org { font-size: 9.5pt; color: #595959; margin-top: 2px; }
 
-  .section-title {
-    font-size: 11pt;
-    font-weight: 700;
-    color: var(--primary-blue);
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--primary-blue);
-    margin-bottom: 10px;
-    padding-bottom: 2px;
-  }
-
-  /* Technical Skills Table Style */
-  .skills-container {
-    display: table;
-    width: 100%;
-    margin-bottom: 5px;
-  }
-
-  .skill-row {
-    display: table-row;
-  }
-
-  .skill-label {
-    display: table-cell;
-    font-weight: 700;
-    color: var(--primary-blue);
-    width: 160px;
-    padding-bottom: 4px;
-  }
-
-  .skill-values {
-    display: table-cell;
-    padding-bottom: 4px;
-  }
-
-  /* Experience */
-  .job {
-    margin-bottom: 12px;
-  }
-
-  .job-header {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 700;
-    font-size: 11pt;
-    margin-bottom: 2px;
-  }
-
-  .job-company-role {
-    color: var(--primary-blue);
-  }
-
-  .job-meta {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 10pt;
-    color: #4a5568;
-    margin-bottom: 5px;
-  }
-
-  .job ul {
-    list-style-type: disc;
-    margin-left: 20px;
-  }
-
-  .job li {
-    margin-bottom: 3px;
-    padding-left: 5px;
-  }
-
-  /* Education */
-  .edu-item {
-    margin-bottom: 8px;
-  }
-
-  .edu-header {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 700;
-    color: var(--primary-blue);
-  }
-
-  .edu-org {
-    font-weight: 400;
-    font-style: italic;
-    color: #4a5568;
-  }
-
-  /* Page Break Control */
-  @media print {
-    body { padding: 0; }
-    .page { width: 100%; }
-  }
+    /* Print settings */
+    @media print {
+        body { padding: 0; }
+        .page { width: 100%; }
+    }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="header">
-    <h1>{{NAME}}</h1>
-    <div class="title">Software Development Engineer in Test</div>
-    <div class="contact-info">
-      {{LOCATION}} <span class="separator">·</span> 
-      <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> <span class="separator">·</span> 
-      <a href="{{LINKEDIN_URL}}">{{LINKEDIN_DISPLAY}}</a>
+    <div class="name-header">{{NAME}}</div>
+    <div class="role-subheader">Software Development Engineer in Test</div>
+    
+    <div class="contact-row">
+        {{LOCATION}} <span class="separator">·</span> 
+        <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> <span class="separator">·</span> 
+        <a href="{{LINKEDIN_URL}}">{{LINKEDIN_DISPLAY}}</a>
     </div>
-  </div>
 
-  <div class="section">
-    <div class="section-title">Professional Summary</div>
+    <div class="section-header">PROFESSIONAL SUMMARY</div>
     <div class="summary-text">{{SUMMARY_TEXT}}</div>
-  </div>
 
-  <div class="section">
-    <div class="section-title">Technical Skills</div>
-    <div class="skills-container">
-      {{SKILLS_HTML}}
-    </div>
-  </div>
+    <div class="section-header">TECHNICAL SKILLS</div>
+    <table class="skills-table">
+        {{SKILLS_HTML}}
+    </table>
 
-  <div class="section">
-    <div class="section-title">Professional Experience</div>
+    <div class="section-header">PROFESSIONAL EXPERIENCE</div>
     {{EXPERIENCE}}
-  </div>
 
-  <div class="section">
-    <div class="section-title">Education</div>
-    {{EDUCATION}}
-  </div>
+    <div class="section-header">EDUCATION</div>
+    <div class="edu-item">
+        <div class="edu-degree">Bachelor of Liberal Arts & Science - Computer Science <span class="edu-date">Jan 2014 – Dec 2015</span></div>
+        <div class="edu-org">Northern Illinois University <span class="separator">·</span> DeKalb, IL</div>
+    </div>
 </div>
 </body>
 </html>
