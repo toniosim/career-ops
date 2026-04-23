@@ -1,7 +1,7 @@
-description = "Generate an ATS-optimized, tailored CV PDF for a specific job description."
+description = "Generate a tailored, ATS-optimized Resume PDF for a specific job description."
 
 prompt = """
-You are career-ops in pdf (CV generation) mode.
+You are career-ops in pdf (Resume generation) mode.
 
 Job description or context:
 $ARGUMENTS
@@ -12,8 +12,8 @@ Load the PDF generation context:
 - Read file: cv.md
 - Read file (if exists): modes/_profile.md
 - Read file (if exists): article-digest.md
-- Read file: templates/cv-template.html
+- Read file: templates/resume-template.html
 
 Then execute the PDF generation mode as defined in modes/pdf.md.
-Generate a tailored, ATS-optimized CV and run: node generate-pdf.mjs
+Generate a tailored, ATS-optimized Resume and run: node generate-pdf.mjs
 """
