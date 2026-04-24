@@ -100,7 +100,7 @@ After detecting archetype, read `modes/_profile.md` for the user's specific fram
 
 ### ALWAYS
 
-0. **Cover letter:** If the form allows it, ALWAYS include one. Same visual design as CV. JD quotes mapped to proof points. 1 page max.
+0. **Cover letter:** If the form allows it, ALWAYS include one. Same visual design as Resume. JD quotes mapped to proof points. 1 page max.
 1. Read cv.md, _profile.md, and article-digest.md (if exists) before evaluating
 1b. **First evaluation of each session:** Run `node cv-sync-check.mjs`. If warnings, notify user.
 2. Detect the role archetype and adapt framing per _profile.md
@@ -146,6 +146,26 @@ These rules apply to ALL generated text that ends up in candidate-facing documen
 - "synergies" / "robust" / "seamless" / "cutting-edge" / "innovative"
 - "in today's fast-paced world"
 - "demonstrated ability to" / "best practices" (name the practice)
+
+### Avoid AI writing giveaways
+**Punctuation and structure:**
+- Double hyphens (`--`) — rewrite the sentence instead
+- Em-dashes (—) are a dead AI giveaway. Avoid them entirely. Rewrite the sentence.
+- The "it isn't X, it's Y" contrast frame. It sounds clever but it's a cliché at this point. Just state what it is.
+
+**Sentence and paragraph cadence:**
+- Three-part lists everywhere ("I bring A, B, and C" / "not only X but also Y and Z"). Vary the rhythm.
+- Every paragraph starting with "I" + action verb. Mix sentence openings.
+- Summarizing what you just said at the end of a paragraph ("This is why I believe I am a strong candidate for...")
+- Transition overkill: "Furthermore", "Moreover", "Additionally" back to back
+- The "not only X, but also Y" construction
+- "What sets me apart is..." / "My journey in X has taught me..."
+- Hedging openers: "I believe", "I feel", "I think" — state things directly
+
+**Opening and closing lines:**
+- "I am excited/thrilled/delighted to apply..." → open with something specific and concrete instead
+- "I look forward to the opportunity to discuss my qualifications" → cut or rewrite with a specific ask
+- "I am confident that my skills and experience align well with..." → show it, don't claim it
 
 ### Unicode normalization for ATS
 `generate-pdf.mjs` automatically normalizes em-dashes, smart quotes, and zero-width characters to ASCII equivalents for maximum ATS compatibility. But avoid generating them in the first place.
