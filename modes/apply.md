@@ -96,14 +96,14 @@ Notes:
 
 Per global rule in `_shared.md`: cover letters must use the **same visual design as the CV** (not plain text).
 
-1. Generate the cover letter text following the structure in `_shared.md` rule #0
-2. Build an HTML file using `templates/resume-template.html` as the style base — same CSS, same fonts, same color palette — but with a letter layout instead of resume sections:
+1. **Generate & Present**: Generate the cover letter text following the structure in `_shared.md` rule #0 and present it to the user in the terminal (or as a `.md` block) for review.
+2. **User Confirmation (MANDATORY)**: STOP and wait for the user to approve the content. If they request edits, regenerate and repeat step 1.
+3. **Build HTML**: Once approved, build an HTML file using `templates/resume-template.html` as the style base — same CSS, same fonts, same color palette — but with a letter layout instead of resume sections:
    - Header: same `.name-header` + `.contact-row` as the resume
    - Body: plain paragraphs with `.summary-text` styling
    - No skills table, no experience bullets
-3. Write HTML to `/tmp/cover-letter-{candidate}-{company}.html`
-4. Run: `node generate-pdf.mjs /tmp/cover-letter-{candidate}-{company}.html output/cover-letter-{candidate}-{company}-{YYYY-MM-DD}.pdf --format={letter|a4}`
-5. Report the output path so the user knows which file to upload
+4. **Write & Render**: Write HTML to `/tmp/cover-letter-{candidate}-{company}.html` and run: `node generate-pdf.mjs /tmp/cover-letter-{candidate}-{company}.html output/cover-letter-{candidate}-{company}-{YYYY-MM-DD}.pdf --format={letter|a4}`
+5. **Report**: Report the output path so the user knows which file to upload.
 
 ## Step 6 — Post-apply (optional)
 
