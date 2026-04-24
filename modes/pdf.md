@@ -43,6 +43,10 @@ The system now defaults to **Resume Mode** using your custom template.
 15. Execute: `node generate-pdf.mjs /tmp/cv-{candidate}-{company}.html output/cv-{candidate}-{company}-{YYYY-MM-DD}.pdf --format={letter|a4}`.
 16. Report: PDF path, page count, % keyword coverage.
 
+## Cover Letter Generation
+
+Cover letter PDFs follow the workflow in `_shared.md` (rule #0) and `apply.md` (Step 5b).
+
 ## ATS Rules (Clean Parsing)
 
 - Single-column layout (no sidebars, no parallel columns).
