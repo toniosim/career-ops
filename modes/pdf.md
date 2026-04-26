@@ -45,7 +45,7 @@ The system now defaults to **Resume Mode** using your custom template.
 
 ## Cover Letter Generation
 
-Cover letter PDFs follow the workflow in `_shared.md` (rule #0) and `apply.md` (Step 5b).
+Cover letter PDFs follow the workflow in `apply.md` (Step 5b): select the Senior or Mid template from `cover_letters/`, generate only the company-specific paragraph, present for user approval, then render to PDF.
 
 ## ATS Rules (Clean Parsing)
 

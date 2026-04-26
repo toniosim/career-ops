@@ -96,14 +96,31 @@ Notes:
 
 Per global rule in `_shared.md`: cover letters must use the **same visual design as the CV** (not plain text).
 
-1. **Generate & Present**: Generate the cover letter text following the structure in `_shared.md` rule #0 and present it to the user in the terminal (or as a `.md` block) for review.
-2. **User Confirmation (MANDATORY)**: STOP and wait for the user to approve the content. If they request edits, regenerate and repeat step 1.
-3. **Build HTML**: Once approved, build an HTML file using `templates/resume-template.html` as the style base — same CSS, same fonts, same color palette — but with a letter layout instead of resume sections:
+### Template selection
+
+Two pre-written templates live in `cover_letters/`. Choose based on the role title:
+
+- **Senior** (`cover_letters/Cover Letter Senior.md`): role title contains "Senior", "Lead", "Principal", "Staff", "Head", or "Manager"
+- **Mid** (`cover_letters/Cover Letter Mid.md`): everything else
+
+If the classification is ambiguous, tell the user which template you're using and let them override.
+
+### Workflow
+
+1. **Read template**: Read the matching template file. It contains three fixed paragraphs and a placeholder: `_[COMPANY-SPECIFIC PARAGRAPH: ...]_`
+2. **Generate company paragraph**: Write one paragraph (4-6 sentences max) to replace the placeholder. It must:
+   - Name something specific about this company (product, tech stack, mission, recent initiative)
+   - Connect it directly to a concrete proof point from the candidate's background
+   - Explain why this role is the next logical step — not a generic aspiration
+   - Follow all writing rules from `_shared.md` (no em-dashes, no clichés, no AI giveaways, no hedging)
+3. **Assemble & Present**: Replace the placeholder with the generated paragraph and present the full letter as a `.md` block for review.
+4. **User Confirmation (MANDATORY)**: STOP and wait for the user to approve. If they request edits, regenerate only the company paragraph and reassemble. Repeat until approved.
+5. **Build HTML**: Once approved, build an HTML file using `templates/resume-template.html` as the style base — same CSS, same fonts, same color palette — but with a letter layout:
    - Header: same `.name-header` + `.contact-row` as the resume
    - Body: plain paragraphs with `.summary-text` styling
    - No skills table, no experience bullets
-4. **Write & Render**: Write HTML to `/tmp/cover-letter-{candidate}-{company}.html` and run: `node generate-pdf.mjs /tmp/cover-letter-{candidate}-{company}.html output/cover-letter-{candidate}-{company}-{YYYY-MM-DD}.pdf --format={letter|a4}`
-5. **Report**: Report the output path so the user knows which file to upload.
+6. **Write & Render**: Write HTML to `/tmp/cover-letter-{candidate}-{company}.html` and run: `node generate-pdf.mjs /tmp/cover-letter-{candidate}-{company}.html output/cover-letter-{candidate}-{company}-{YYYY-MM-DD}.pdf --format={letter|a4}`
+7. **Report**: Report the output path so the user knows which file to upload.
 
 ## Step 6 — Post-apply (optional)
 
